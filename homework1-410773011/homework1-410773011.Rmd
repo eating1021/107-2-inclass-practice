@@ -1,0 +1,112 @@
+---
+title: "homework 1"
+date: "2019-04-12"
+output: html_document
+params:
+  studentID: "410773011"
+  studentName: "蔡宜庭"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+library(lubridate)
+library(stringr)
+```
+```{r data1}
+major <- c("經濟系","法律系","社會系","經濟系")
+grade <- c(50,60,92,88)
+```
+```{r ans11}
+logicalclass<-c("fromEcon")
+class(logicalclass)
+major <- c("fromEcon","法律系","社會系","fromEcon")
+grade <- c(50,60,92,88)
+major %in% logicalclass
+```
+
+```{r ans12}
+sum(major %in% logicalclass)
+sumEcon <-sum(major %in% logicalclass)
+class(sumEcon)
+```
+```{r ans13}
+a <-50 
+b <-60 
+c <-92 
+d <-88
+(a+b+c+d)/4
+meanEcon <-72.5
+```
+```{r data2, message=F}
+library(readr)
+podcastcompetition3 <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/podcastcompetition3.csv")
+submitTime <- podcastcompetition3$Timestamp
+head(submitTime)
+```
+```{r 21}
+library(lubridate)
+dtObject<-submitTime
+submitTime <-datetime
+```
+
+```{r 22}
+
+```
+
+```{r 23}
+
+```
+
+```{r 24}
+
+```
+
+```{r data3, message=F}
+library(readr)
+transcriptDataFinal <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/transcriptDataFinal.csv")
+studentID <- transcriptDataFinal$學號
+schoolYear <- transcriptDataFinal$學年
+grade <- transcriptDataFinal$學期成績
+credit <- transcriptDataFinal$學分數
+```
+```{r 31}
+integer <-c("earnedCredit")
+```
+
+```{r 32}
+
+```
+
+```{r 33}
+
+```
+
+```{r 34}
+
+```
+
+
+
+
