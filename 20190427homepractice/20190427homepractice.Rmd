@@ -1,0 +1,323 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r}
+a <-2
+a
+```
+```{r}
+a<-5
+a2<-5L
+aVector<-c(5,6,7)
+a2Vector<-c(5L,6L,7L)
+class(a)
+class(a2)
+b <-c(5,6,7)
+class(b)
+```
+```{r}
+c <-c("hello")
+cVector <-c("你好","how are you")
+class(c)
+class(cVector)
+b<-"你好"
+bVector<-c("你好","How are you?")
+class(b)
+class(bVector)
+```
+```{r}
+dialogue <-c('小明說:"今天不用上課"','小花說:"真的嗎"')
+cat(dialogue,sep = "\n")
+class(dialogue)
+```
+```{r}
+dialogue <-c("小明說:'明天不用上課。'","小花說:'真的嗎?'")
+cat(dialogue,sep = "\n")
+```
+```{r}
+aLogical <-c(T,TRUE,F,FALSE,FALSE)
+class(aLogical)
+sum(aLogical)
+```
+```{r}
+studentMajors <-factor(c("經濟系","經濟系","法律系"))
+class(studentMajors)
+typeof(studentMajors)
+levels(studentMajors)
+studentMajors
+as.integer(studentMajors)
+```
+```{r}
+stringInteger <-c("1","2","-11")
+class(stringInteger)
+trueInteger <-as.integer(stringInteger)
+class(trueInteger)
+sum(trueInteger)
+```
+```{r}
+library(lubridate)
+```
+
+```{r}
+dtObject<-ymd_hms("1997-01-01 00:02:53")
+dtObjectVector<-ymd_hms(c("1997-01-01 00:02:53","1980-02-11 11:25:22"))
+class(dtObject)
+class(dtObjectVector)
+dtObject
+dtObjectVector
+as.double(dtObject)
+as.integer(dtObject)
+```
+```{r}
+Sys.timezone()
+```
+```{r}
+twDateTime <- ymd_hms("2019-03-18 14:04:00",tz="Asia/Taipei")
+twDateTime
+as.integer(twDateTime)
+twDateTimeUTC <- ymd_hms("2019-03-18 14:04:00")
+twDateTimeUTC
+as.integer(twDateTimeUTC)
+LisbonDatetime <-with_tz(twDateTime,tz="Europe/Lisbon")
+LisbonDatetime
+as.integer(LisbonDatetime)
+
+```
+```{r}
+mdy_hms("03-14-2019 8:18:47")
+ymd("2018/09/11")
+mdy("March 3,2019")
+```
+```{r}
+as.integer(ymd("1970-01-01"))
+as.integer(ymd("1970-01-02"))
+as.integer(ymd("2019-03-11"))
+```
+```{r}
+as.integer(ymd("2019-01-01"))
+```
+```{r}
+a <- c(1, 5, -3)
+b <- c(0.5, 12, 2)
+a+b
+a-b
+a*b
+a/b
+```
+```{r}
+aL <- c(1L, 5L, -3L)
+bL <- c(-2L, -4L, 8L)
+a+bL
+aL+bL
+class(a+bL)
+class(aL+bL)
+c <- 4
+c+a
+```
+```{r}
+twDateTime <- ymd_hms("2019-03-18 14:04:00", tz="Asia/Taipei")
+a1 <-ymd("2019-08-11")
+a2 <-ymd("2000-02-01")
+aa1 <-as.integer(a1)
+aa2 <-as.integer(a2)
+aa1+aa2
+aa1-aa2
+class(aa1+aa2)
+```
+```{r}
+ymd("2000-02-01") -> startingDate
+ymd("2019-08-11") -> endingDate
+endingDate - startingDate
+class(endingDate - startingDate)
+```
+```{r}
+x3 <- c("小明","小花")
+y3 <- c("小明","小華")
+x3 == y3
+major <-c("經濟系","經濟系","法律系")
+majorEcon <-major =="經濟系"
+majorEcon
+sumEcon <-sum(majorEcon)
+sumEcon
+class(majorEcon)
+grade <-c("50","88","90")
+
+```
+```{r}
+major <- c("經濟系","法律系","社會系","經濟系")
+grade <- c(50,60,92,88)
+fromEcon <- major=="經濟系"
+fromEcon
+sumEcon <-sum(fromEcon)
+sumEcon
+meanEcon <-sum(fromEcon*grade)/sum(fromEcon)
+meanEcon
+```
+```{r}
+library(readr)
+podcastcompetition3 <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/podcastcompetition3.csv")
+submitTime <- podcastcompetition3$Timestamp
+head(submitTime)
+```
+```{r}
+submitTime <-mdy_hms(podcastcompetition3$Timestamp)
+submitTime
+```
+```{r}
+twTime <-with_tz(submitTime,tzone ="Asia,Taipei")
+twTime
+```
+```{r}
+hour(twTime)
+nightOwl <-hour(twTime)>=1&hour(twTime)<=6
+nightOwl
+```
+```{r}
+sum(nightOwl)
+nightOwlVoteShare <-sum(nightOwl)/length(nightOwl)
+nightOwlVoteShare
+```
+```{r}
+library(readr)
+transcriptDataFinal <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/transcriptDataFinal.csv")
+studentID <- transcriptDataFinal$學號
+schoolYear <- transcriptDataFinal$學年
+grade <- transcriptDataFinal$學期成績
+credit <- transcriptDataFinal$學分數
+```
+```{r}
+earnedCredit <-sum(grade>=60*credit)
+earnedCredit <-as.integer(earnedCredit)
+earnedCredit
+```
+```{r}
+isChosenStudent <-studentID=="046S6f645"
+isChosenStudent
+```
+```{r}
+library(lubridate); library(stringr); library(dplyr)
+```
+```{r}
+studentRecord <-
+  list(
+    學號="410073058",
+    姓名="王小明",
+    性別="男",
+    學年平均成績=list(
+      一年級=88,
+      二年級=90.3,
+      三年級=92,
+      四年級=95
+    )
+  )
+```
+```{r}
+names(studentRecord)[[4]] <-"平均成績"
+studentRecord
+```
+```{r}
+names(studentRecord[[4]]) <- c("一","二","三","四")
+studentRecord
+```
+```{r}
+library(httr)
+commitCheck <- content(GET("https://api.github.com/repos/rstudio/rstudio/commits"))
+```
+
+```{r}
+commitCheck[[8]][["commit"]][["committer"]][["date"]][[1]] -> commit8Date
+class(commit8Date)
+commit8Date
+```
+```{r}
+commit8TWDate <-ymd_hms(commit8Date,tz="Asia/Taipei")
+commit8TWDate
+```
+```{r}
+length(commitCheck)
+names(commitCheck) <-str_c("commit",c(1:30))
+commitCheck
+```
+```{r}
+library(purrr)
+map(commitCheck,~.[[3]][[2]][[3]][[1]]) -> allCommitDatesList
+```
+
+```{r}
+unlist(allCommitDatesList) ->allcommitDate
+allcommitDate
+class(allcommitDate)
+```
+```{r}
+allCommitDatesTW <-ymd_hms(allcommitDate,tz="Asia/Taipei")
+allCommitDatesTW
+```
+```{r}
+hours <-hour(allCommitDatesTW)
+minutes <-minute(allCommitDatesTW)
+hh.mm <-hours+minutes
+hh.mm
+logicalWithinTimeFrame <-(hh.mm >=4+30&hh.mm<=6+30)
+logicalWithinTimeFrame
+```
+```{r}
+library(readr)
+transcriptData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/transcriptDataFinal.csv")
+
+```
+
+```{r}
+names(transcriptData) -> variableNames
+variableNames
+```
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
